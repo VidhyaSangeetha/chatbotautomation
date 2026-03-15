@@ -1,0 +1,84 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - link "الشعارuask" [ref=e9] [cursor=pointer]:
+        - /url: /ar/uask
+        - img "uask" [ref=e10]
+      - button "فتح سجل المحادثات" [ref=e11] [cursor=pointer]:
+        - img [ref=e13]
+    - generic "الإنجليزية" [ref=e16] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e21]: English
+  - iframe [ref=e26]:
+    - generic [ref=f5e2]:
+      - generic [ref=f5e3]:
+        - checkbox "I'm not a robot" [ref=f5e7]
+        - generic [ref=f5e11]: I'm not a robot
+      - generic [ref=f5e12]:
+        - generic [ref=f5e15]: reCAPTCHA
+        - generic [ref=f5e16]:
+          - link "Privacy" [ref=f5e17] [cursor=pointer]:
+            - /url: https://www.google.com/intl/en/policies/privacy/
+          - text: "-"
+          - link "Terms" [ref=f5e18] [cursor=pointer]:
+            - /url: https://www.google.com/intl/en/policies/terms/
+  - generic [ref=e31]:
+    - listbox "الرسائل" [ref=e36]:
+      - option "مرحبا" [ref=e37]:
+        - img [ref=e39]
+        - paragraph [ref=e42]: مرحبا
+      - option "loader" [ref=e43]:
+        - img [ref=e45]
+        - img "loader" [ref=e54]
+    - generic [ref=e61]:
+      - generic [ref=e66]:
+        - textbox "من فضلك، اطرح سؤالك" [ref=e67]
+        - region [ref=e68] [cursor=pointer]:
+          - button "ابدأ التعرف على الكلام" [ref=e69]:
+            - img [ref=e70]
+          - generic [ref=e73]:
+            - generic [ref=e74]: AR
+            - generic [ref=e75]: Select speech recognition language
+            - combobox "اختر لغة التعرف على الكلام" [ref=e76]:
+              - option "الجورجية [ქართული]"
+              - option "العربية [العربية]" [selected]
+              - option "الإنجليزية [English]"
+              - option "الفرنسية [Français]"
+              - option "الأسبانية [Español]"
+              - option "الألمانية [Deutsch]"
+              - option "الإيطالية [Italiano]"
+              - option "البرتغالية [Português]"
+              - option "السويدية [Svenska]"
+              - option "الهولندية [Nederlands]"
+              - option "الدانماركية [Dansk]"
+              - option "الفنلندية [Suomi]"
+              - option "اليونانية [Ελληνικά]"
+              - option "الهنغارية [Magyar]"
+              - option "النرويجية [Norsk]"
+              - option "الرومانية [Română]"
+              - option "التركية [Türkçe]"
+              - option "الصينية [中文]"
+              - option "اليابانية [日本語]"
+              - option "الروسية [Русский]"
+              - option "الكورية [한국어]"
+              - option "البولندية [Polski]"
+              - option "الكتالانية [Català]"
+              - option "الأردية [اردو]"
+              - option "الهندية [हिन्दी]"
+              - option "البنغالية [বাংলা]"
+              - option "الإندونيسية [Bahasa Indonesia]"
+              - option "التايلاندية [ไทย]"
+              - option "الفيتنامية [Tiếng Việt]"
+              - option "العبرية [עברית]"
+              - option "الأوكرانية [Українська]"
+      - generic [ref=e79] [cursor=pointer]:
+        - button "إرسال رسالة" [disabled]:
+          - generic:
+            - img
+  - paragraph [ref=e80]:
+    - link "شروط الخدمة" [ref=e81] [cursor=pointer]:
+      - /url: /ar/uask/terms-of-service
+```

@@ -1,0 +1,84 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - link "Logouask" [ref=e9] [cursor=pointer]:
+        - /url: /en/uask
+        - img "uask" [ref=e10]
+      - button "Open Chat History" [ref=e11] [cursor=pointer]:
+        - img [ref=e13]
+    - generic "Arabic" [ref=e16] [cursor=pointer]:
+      - img [ref=e18]
+      - generic [ref=e21]: العربية
+  - iframe [ref=e26]:
+    - generic [ref=f5e2]:
+      - generic [ref=f5e3]:
+        - checkbox "I'm not a robot" [ref=f5e7]
+        - generic [ref=f5e11]: I'm not a robot
+      - generic [ref=f5e12]:
+        - generic [ref=f5e15]: reCAPTCHA
+        - generic [ref=f5e16]:
+          - link "Privacy" [ref=f5e17] [cursor=pointer]:
+            - /url: https://www.google.com/intl/en/policies/privacy/
+          - text: "-"
+          - link "Terms" [ref=f5e18] [cursor=pointer]:
+            - /url: https://www.google.com/intl/en/policies/terms/
+  - generic [ref=e31]:
+    - listbox "Messages" [ref=e36]:
+      - option "How can I apply for a golden visa?" [ref=e37]:
+        - img [ref=e39]
+        - paragraph [ref=e42]: How can I apply for a golden visa?
+      - option "loader" [ref=e43]:
+        - img [ref=e45]
+        - img "loader" [ref=e54]
+    - generic [ref=e61]:
+      - generic [ref=e66]:
+        - textbox "Please ask me a question" [active] [ref=e67]
+        - region [ref=e68] [cursor=pointer]:
+          - button "Start speech recognition" [ref=e69]:
+            - img [ref=e70]
+          - generic [ref=e73]:
+            - generic [ref=e74]: EN
+            - generic [ref=e75]: Select speech recognition language
+            - combobox "Select speech recognition language" [ref=e76]:
+              - option "Georgian [ქართული]"
+              - option "Arabic [العربية]"
+              - option "English [English]" [selected]
+              - option "French [Français]"
+              - option "Spanish [Español]"
+              - option "German [Deutsch]"
+              - option "Italian [Italiano]"
+              - option "Portuguese [Português]"
+              - option "Swedish [Svenska]"
+              - option "Dutch [Nederlands]"
+              - option "Danish [Dansk]"
+              - option "Finnish [Suomi]"
+              - option "Greek [Ελληνικά]"
+              - option "Hungarian [Magyar]"
+              - option "Norwegian [Norsk]"
+              - option "Romanian [Română]"
+              - option "Turkish [Türkçe]"
+              - option "Chinese [中文]"
+              - option "Japanese [日本語]"
+              - option "Russian [Русский]"
+              - option "Korean [한국어]"
+              - option "Polish [Polski]"
+              - option "Catalan [Català]"
+              - option "Urdu [اردو]"
+              - option "Hindi [हिन्दी]"
+              - option "Bengali [বাংলা]"
+              - option "Indonesian [Bahasa Indonesia]"
+              - option "Thai [ไทย]"
+              - option "Vietnamese [Tiếng Việt]"
+              - option "Hebrew [עברית]"
+              - option "Ukrainian [Українська]"
+      - generic [ref=e79] [cursor=pointer]:
+        - button "Send Message" [disabled]:
+          - generic:
+            - img
+  - paragraph [ref=e80]:
+    - link "Terms of Service" [ref=e81] [cursor=pointer]:
+      - /url: /en/uask/terms-of-service
+```

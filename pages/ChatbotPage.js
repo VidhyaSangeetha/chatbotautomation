@@ -5,6 +5,8 @@ class ChatbotPage {
         // Initialize locators and page reference
         this.page = page;
         this.chatArea = page.locator(locators.chatArea);
+        this.chatOptions = page.locator(locators.chatOptions);
+        this.chatOption = page.locator(locators.chatOption);
         this.textInput = page.locator(locators.textInput);
         this.sendButton = page.locator(locators.sendButton);
         this.aiMessages = page.locator(locators.aiMessage);
@@ -32,11 +34,17 @@ class ChatbotPage {
         await this.sendButton.click();
     }
 
+     /* Method to select a query and send to the chatbot. */
+    async selectChatOption() {
+        await this.chatOption.waitFor({ state: 'visible' });
+        await this.chatOptions.first().click();
+    }
+
     /* Method to wait for the chatbot's response after sending a message. */
     async waitForResponse() {
         await this.page.waitForTimeout(30000);
         await this.aiMessages.last().waitFor({ state: 'visible', timeout: 30000 });
-        await this.page.waitForTimeout(30000);
+        await this.page.waitForTimeout(60000);
     }
 
     /* Convenience method to send a message and wait for the response in one step. */
@@ -44,6 +52,13 @@ class ChatbotPage {
         await this.sendMessage(message);
         await this.waitForResponse();
     }
+
+ /* Convenience method to select a chat option and wait for the response */
+    async selectChatOptionAndWaitForResponse(idex) {
+        await this.selectChatOption();
+        await this.waitForResponse();
+    }
+
 
     /* Method to retrieve the text of the last message from the chatbot. */
     async getLastResponseText() {

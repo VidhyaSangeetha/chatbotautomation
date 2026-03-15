@@ -7,5 +7,6 @@
   "aiMessage": ".chatContainer .card-body",
   "thinkingIndicator": ".card-body img[alt='loader']",
   "chatArea": ".main-chat-area",
-  "acceptButton": "button.btn.btn-brand"
+  "acceptButton": "button.btn.btn-brand",
+  "chatOptions": ".card-listing[tabindex='0'] .mb-0"
 }
