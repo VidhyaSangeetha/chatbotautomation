@@ -1,0 +1,11 @@
+{
+  "chatOption": ".swiper-wrapper",
+  "textInput": "textarea#conversation",
+  "sendButton": "button.send-question",
+  "chatHistoryButton": ".chat-history-header button.chat-button",
+  "userMessage": "div[id^='msg-'].card-body-user",
+  "aiMessage": ".chatContainer .card-body",
+  "thinkingIndicator": ".card-body img[alt='loader']",
+  "chatArea": ".main-chat-area",
+  "acceptButton": "button.btn.btn-brand"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "uask-automation",
+  "version": "1.0.0",
+  "description": "Automation framework for U-Ask Chatbot",
+  "keywords": [
+    "[\"playwright\"",
+    "\"e2e\"",
+    "\"qa-automation\"",
+    "\"chatbot\"",
+    "\"uask\"",
+    "\"ai-judge\"",
+    "\"gemini\"",
+    "\"hallucination-detection\"]"
+  ],
+  "license": "ISC",
+  "author": "Vidhya Sasidharan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/",
+    "test:ui": "npx playwright test tests/ui/",
+    "test:headed": "npx playwright test --headed",
+    "test:report": "npx playwright show-report",
+    "test:ai": "npx playwright test tests/ai/",
+    "test:security": "npx playwright test tests/security/"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
