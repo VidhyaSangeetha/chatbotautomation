@@ -105,6 +105,74 @@ Tests the chatbot's security against common web vulnerabilities.
 - **Prompt Injection Handling**: Tests resistance to prompt manipulation attacks
 - **Input Validation**: Ensures malicious inputs are handled safely
 
+## ChatGPT-Powered AI Validation
+
+This framework includes AI-powered validation using OpenAI's GPT models to intelligently assess chatbot responses for relevance, accuracy, and hallucination detection.
+
+### Setup
+
+1. **Install OpenAI package** (already included):
+   ```bash
+   npm install openai dotenv
+   ```
+
+2. **Configure OpenAI API Key**:
+   - Create a `.env` file in the project root:
+     ```env
+     OPENAI_API_KEY=sk-your-api-key-here
+     ```
+   - Get your API key from [OpenAI Dashboard](https://platform.openai.com/account/api-keys)
+
+3. **Alternative: Set Environment Variable**:
+   ```bash
+   export OPENAI_API_KEY=sk-your-api-key-here
+   ```
+
+### Features
+
+- **Intelligent Response Validation**: Uses GPT to evaluate chatbot responses for clarity, accuracy, and relevance
+- **Hallucination Detection**: Identifies fabricated or false information in responses
+- **Context Awareness**: Validates responses against provided context and ground truth data
+- **Multi-Language Support**: Validates responses in English and Arabic
+- **Customizable Assertions**: Define custom validation rules using natural language
+
+### Usage in Tests
+
+```javascript
+const { expect } = require('@playwright/test');
+const { validateResponseWithAI, detectHallucinations } = require('./utils/ai-validator');
+
+test('Validate AI response quality', async ({ page }) => {
+  const response = await chatbot.sendAndReceiveViaApi('How do I apply for a visa?', 'uask', 'en');
+  
+  // Intelligent validation
+  const isValid = await validateResponseWithAI(
+    response.response,
+    'Provide visa application process',
+    'Should mention required documents and steps'
+  );
+  
+  expect(isValid).toBeTruthy();
+  
+  // Hallucination check
+  const hasHallucinations = await detectHallucinations(
+    response.response,
+    'UAE visa requirements'
+  );
+  
+  expect(hasHallucinations).toBeFalsy();
+});
+```
+
+### API Integration
+
+The framework automatically uses ChatGPT to:
+- **Validate Response Quality**: Checks if responses are clear, concise, and relevant
+- **Ground Truth Checking**: Compares responses against known factual information
+- **Language-Aware Analysis**: Handles both English and Arabic responses
+- **Confidence Scoring**: Provides confidence levels for validation results
+
+
 ### Test Data
 Test scenarios are driven by data in `fixtures/test-data.json`:
 - **Locales**: Language configurations
