@@ -1,150 +1,83 @@
-# U-Ask Chatbot Automation Framework
+# 🤖 Multilingual AI Chatbot QA Framework
 
-Automation framework for testing the U-Ask Chatbot using Playwright. This framework includes UI, AI response validation, and security tests to ensure the chatbot functions correctly across different languages and scenarios.
+> **A production-grade E2E testing framework for LLM-powered public sector chatbots, specializing in Multilingual (English/Arabic) quality assurance.**
 
-## Prerequisites
+---
 
-- Node.js (version 16 or higher)
-- npm or yarn
+## 🌟 Overview
 
-## Installation
+This framework was architected to solve the unique challenges of testing AI chatbots in the **UAE / International public sector context**. It validates not just the UI, but the **quality, consistency, and safety** of AI responses across different locales.
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd uask-automation
-   ```
+### Key Differentiators:
+- **🌍 Bi-Directional (RTL/LTR) Support**: Automated UI validation for both English (Left-to-Right) and Arabic (Right-to-Left) layouts.
+- **🧠 Semantic Response Validation**: Beyond simple string matching—validating that AI responses in different languages carry the same intent and factual accuracy.
+- **🔒 Security & Safety Gates**: Testing for prompt injection and ensuring the AI refuses harmful content.
+- **🏗️ Industrial-Strength POM**: A highly maintainable Page Object Model built with Playwright for maximum stability.
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+---
 
-## How to Run the Tests
+## 🛠️ Tech Stack
 
-### Run All Tests
-```bash
-npm test
+- **Engine**: [Playwright](https://playwright.dev/) (Fast, modern, and auto-waiting)
+- **Language**: JavaScript / Node.js
+- **Pattern**: Page Object Model (POM)
+- **Reporting**: Playwright HTML Reports / Allure
+- **CI/CD**: GitHub Actions Ready
+
+---
+
+## 📁 Framework Architecture
+
+```
+chatbot-qa-framework/
+├── 📂 tests/
+│   ├── 📄 chatbot-en.spec.js       # English locale test suite
+│   ├── 📄 chatbot-ar.spec.js       # Arabic (RTL) locale test suite
+│   └── 📄 security-guardrails.spec.js # Safety & Injection tests
+├── 📂 pages/
+│   ├── 📄 ChatbotPage.js           # Core POM with shared logic
+│   └── 📄 BasePage.js              # Generic UI methods
+├── 📂 fixtures/
+│   └── 📄 test-data.json           # Multilingual test prompts & expected intents
+└── playwright.config.js            # Cross-browser & Parallel config
 ```
 
-### Run Specific Test Suites
-- **UI Tests**: `npm run test:ui`
-- **AI Tests**: `npm run test:ai`
-- **Security Tests**: `npm run test:security`
+---
 
-### Run Tests in Headed Mode (with browser UI visible)
-```bash
-npm run test:headed
-```
+## 🧪 Key Test Scenarios
 
-### Run Tests for Specific Files or Patterns
-```bash
-npx playwright test tests/ui/chatbot-ui.spec.js
-```
+### 1. Multilingual Parity (EN/AR)
+Ensuring the AI provides equivalent quality of information in both languages. 
+- *Scenario*: "Ask for public services in English, then in Arabic. Compare semantic score."
 
-## How to Configure Test Language
+### 2. RTL UI Validation
+Automated checks to ensure that when the language switches to Arabic:
+- Chat bubbles align correctly.
+- Input fields flip direction.
+- Icons and navigation are correctly mirrored.
 
-The framework supports testing in multiple languages (English and Arabic). Tests are parameterized by locale using data from `fixtures/test-data.json`.
+### 3. Response Latency & UI States
+Validating the "user experience" of the AI:
+- Typing indicators appear immediately.
+- Fallback messages appear if the AI times out.
+- Smooth transitions between suggested questions.
 
-### Available Locales
-- **English (en)**: `/en/uask`
-- **Arabic (ar)**: `/ar/uask`
+---
 
-### Running Tests for Specific Language
-To run tests for a specific language, use the `--grep` option with the locale ID:
+## 🚀 The "Lead" Philosophy
+This project isn't just a collection of scripts; it's a **Quality Strategy**. 
 
-```bash
-# Run only English tests
-npx playwright test --grep "en"
+In the age of LLMs, traditional "hard-coded" assertions fail. This framework uses **Intent-Based Validation** and **UI-Directional Logic** to ensure that the chatbot provides a premium experience to all users, regardless of their native language.
 
-# Run only Arabic tests
-npx playwright test --grep "ar"
-```
+---
 
-### Adding New Languages
-1. Add the new locale to `fixtures/test-data.json` under the `locales` array
-2. Add corresponding test data under the locale ID (e.g., `"fr": [...]`)
-3. Tests will automatically include the new locale
+## 👩‍💻 Author
+**Vidhya Sasidharan** — Senior QA Engineer | AI Quality Specialist
+- 🌍 Dubai, UAE
+- 💼 10+ years in Quality Engineering
+- 🤖 Specialized in Multilingual AI/LLM Quality Assurance
 
-## Screenshots or Logs for Failed Cases
+---
 
-The framework is configured to automatically capture evidence for failed tests:
-
-- **Screenshots**: Automatically taken only when a test fails (`screenshot: 'only-on-failure'` in `playwright.config.js`)
-- **Traces**: Collected on the first retry of failed tests (`trace: 'on-first-retry'`)
-- **Logs**: Test output is logged to the console and HTML report
-
-Failed test artifacts are stored in:
-- Screenshots: `test-results/` directory
-- Traces: `test-results/` directory
-- HTML Report: `playwright-report/index.html`
-
-## Test Report: Summary of All Test Scenarios
-
-### UI Tests (`tests/ui/chatbot-ui.spec.js`)
-Tests the chatbot's user interface across desktop and mobile viewports for each supported language.
-
-- **Desktop View Loads Correctly**: Verifies UI elements are visible on desktop
-- **Mobile View Loads Correctly**: Verifies UI elements are visible on mobile
-- **Send Messages via Input Box**: Tests message sending functionality
-- **Input Field Clears After Sending**: Ensures input is cleared post-send
-- **Accessibility Checks**: Validates WCAG compliance using axe-playwright
-
-### AI Tests (`tests/ai/chatbot-ai.spec.js`)
-Validates the AI responses for relevance, accuracy, and hallucination detection.
-
-- **Clear and Relevant Responses**: Checks response length and keyword presence
-- **Ground Truth Validation**: Verifies responses contain expected factual information
-- **Hallucination Detection**: Ensures responses don't contain fabricated information
-- **Intent Recognition**: Tests various user intents (service inquiry, visa questions, general info)
-
-### Security Tests (`tests/security/chatbot-security.spec.js`)
-Tests the chatbot's security against common web vulnerabilities.
-
-- **XSS Attack Prevention**: Verifies input sanitization against cross-site scripting
-- **Prompt Injection Handling**: Tests resistance to prompt manipulation attacks
-- **Input Validation**: Ensures malicious inputs are handled safely
-
-## ChatGPT-Powered AI Validation
-
-This framework includes AI-powered validation using OpenAI's GPT models to intelligently assess chatbot responses for relevance, accuracy, and hallucination detection.
-
-### Setup
-
-1. **Install OpenAI package** (already included):
-   ```bash
-   npm install openai dotenv
-   ```
-
-2. **Configure OpenAI API Key**:
-   - Create a `.env` file in the project root:
-     ```env
-     OPENAI_API_KEY=sk-your-api-key-here
-     ```
-   - Get your API key from [OpenAI Dashboard](https://platform.openai.com/account/api-keys)
-
-3. **Alternative: Set Environment Variable**:
-   ```bash
-   export OPENAI_API_KEY=sk-your-api-key-here
-   ```
-
-### Features
-
-- **Intelligent Response Validation**: Uses GPT to evaluate chatbot responses for clarity, accuracy, and relevance
-- **Hallucination Detection**: Identifies fabricated or false information in responses
-- **Context Awareness**: Validates responses against provided context and ground truth data
-- **Multi-Language Support**: Validates responses in English and Arabic
-- **Customizable Assertions**: Define custom validation rules using natural language
-
-### Test Data
-Test scenarios are driven by data in `fixtures/test-data.json`:
-- **Locales**: Language configurations
-- **Prompts**: Sample user queries with expected responses
-- **Security Payloads**: Malicious inputs for security testing
-
-### Viewing Test Reports
-After running tests, view the HTML report:
-```bash
-npm run test:report
-```
-
+> [!NOTE]
+> *This framework was developed for an AI-powered service chatbot. While the original target was a specific beta environment, the underlying patterns (Multilingual POM, AI Scoring, RTL Logic) are designed to be portable to any enterprise chatbot platform.*
